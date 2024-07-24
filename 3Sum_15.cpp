@@ -21,13 +21,14 @@ public:
             }
         }
 
-        //
+        
         for (i = 0; i < line; i++) {
-            if (i > 0 && nums[i] == nums[i - 1]) {
+            if (i > 0 && nums[i] == nums[i - 1]) {//跳過重複的
                 continue;
             }
             j = i + 1;
             k = nums.size() - 1;
+            //用3個idx i,j,k，固定i，j,k從左右夾擊直到碰到
             while (j < k) {
 
                 if (nums[i] + nums[j] + nums[k] < 0) {
@@ -38,7 +39,7 @@ public:
                 } else {
                     ret.push_back({nums[i], nums[j], nums[k]});
                     j++;
-                    while (j < k && nums[j] == nums[j - 1]) {
+                    while (j < k && nums[j] == nums[j - 1]) {//跳過重複的
                         j++;
                     }
                 }
